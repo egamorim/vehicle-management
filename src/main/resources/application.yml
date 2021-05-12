@@ -1,0 +1,13 @@
+server:
+  port: 8180
+  servlet:
+    context-path: /vehicle-management/v1
+test:
+  url:
+    http://noapplicationlocal:8080
+
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDB53Dialect
+    hibernate:
+      ddl-auto: update

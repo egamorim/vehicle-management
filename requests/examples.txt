@@ -1,0 +1,35 @@
+-- create a new vehicle
+curl --request POST \
+  --url http://localhost:8180/vehicle-management/v1/vehicle/ \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"plate": "EDU-2105",
+	"model": "Opala",
+	"manufacturer": "Chevrolet",
+	"status": "ACTIVE"
+}
+'
+
+-- update a vehicle by plate
+curl --request PUT \
+  --url http://localhost:8180/vehicle-management/v1/vehicle/plate/EDU-2105 \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"model": "Masserati",
+	"manufacturer": "Chevrolet",
+	"status": "ACTIVE"
+}
+'
+
+-- list all vehicles paginated
+curl --request GET \
+  --url 'http://localhost:8180/vehicle-management/v1/vehicle/?page=1&sorted-by=model'
+
+-- get a vehicle by plate
+curl --request GET \
+  --url http://localhost:8180/vehicle-management/v1/vehicle/plate/OKI-0987
+
+-- delete a vehicle by plate
+curl --request DELETE \
+  --url http://localhost:8180/vehicle-management/v1/vehicle/plate/EDR-2435
+
